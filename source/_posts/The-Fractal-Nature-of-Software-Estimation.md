@@ -4,7 +4,7 @@ date: 2017-1-03
 
 ---
 
-Inspired by the excellent quora answer: https://www.quora.com/Why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/answer/Michael-Wolfe I noticed something. Doubtlessly to be read between the lines, but not explicitly mentioned, the shape of the coast is fractal in nature, at least up until a point. Each successive order of magnitude approximates the level of detail of the last, yet if we keep going we find that the smooth curves of an inlet are approximated by rocky crags.
+Inspired by the excellent quora answer: https://www.quora.com/Why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/answer/Michael-Wolfe I noticed something. As the author demonstrates the inefficiency of software estimation through the example of estimating the time it would take to walk up the coast of California, it seems implied that the shape of the coast is fractal in nature, at least up until a point. Each successive order of magnitude approximates the level of detail of the last, yet if we keep going we find that the smooth curves of an inlet are approximated by rocky crags.
 
 Software estimation seems to me to have a similar feature. Tasks are estimated recursively (either explicitly or by estimation) by breaking up tasks into subtasks which are easier to estimate. At last we either end up with atomic tasks which are relatively difficult to estimate improperly. We can then estimate them and merge them all together into a list, or a directed acyclic graph depending on how complicated your project management software is. This process works for sorting a list of integers, why shouldn't it work for estimating software? If it doesn't work, is there some better method?
 
