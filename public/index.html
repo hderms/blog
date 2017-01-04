@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="author" content="John Doe">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-89814809-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-01-03T06:00:00.000Z"><a href="/2017/01/03/The-Fractal-Nature-of-Software-Estimation/">2017-01-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/03/The-Fractal-Nature-of-Software-Estimation/">The Fractal Nature of Software Estimation</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Inspired by the excellent quora answer: <a href="https://www.quora.com/Why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/answer/Michael-Wolfe" target="_blank" rel="external">https://www.quora.com/Why-are-software-development-task-estimations-regularly-off-by-a-factor-of-2-3/answer/Michael-Wolfe</a> I noticed something. Doubtlessly to be read between the lines, but not explicitly mentioned, the shape of the coast is fractal in nature, at least up until a point. Each successive order of magnitude approximates the level of detail of the last, yet if we keep going we find that the smooth curves of an inlet are approximated by rocky crags.</p>
+<p>Software estimation seems to me to have a similar feature. Tasks are estimated recursively (either explicitly or by estimation) by breaking up tasks into subtasks which are easier to estimate. At last we either end up with atomic tasks which are relatively difficult to estimate improperly. We can then estimate them and merge them all together into a list, or a directed acyclic graph depending on how complicated your project management software is. This process works for sorting a list of integers, why shouldn’t it work for estimating software? If it doesn’t work, is there some better method?</p>
+<p>The process is:</p>
+<ol>
+<li>Break into subtasks</li>
+<li>for each subtask either:<br>2.1 estimate it if it is atomic<br>2.2  break it up further</li>
+<li>check if we are done or recurse on the non-terminal nodes</li>
+</ol>
+<p>The reason this path is lined with peril is, at the very least, a function of the inaccuracy of any given step. If we break a task into the wrong subtasks, we can expect there to be some kind of cost in either maintenance or inefficient development. We could have too many subtasks, not enough subtasks, etc… all of which could lead to a non-linear number of inaccuracies down the road (if you forget a subtask you now have possibly multiple levels in the graph that need to work the process). If we incorrectly classify tasks as small enough to estimate, we are left with a similar situation as before. Something could be missing, but it could actually be several levels in the graph, not just a constant error.</p>
+<p>As it’s obvious from the recursive nature of the problem, any of these hidden chunks of work that remain to be completed are liable to have their own inaccuracies involved with estimation. Very quickly you can begin to sense that there is a challenge in estimating software properly without even getting into the specifics of software itself. But this same level of complexity should be present in any workflow based on dependent tasks. Why is software seemingly worse off than other areas?</p>
+<p>In addition to hidden layers of inaccurate estimation, we are also plagued with difficulty in even conceptualizing software in this manner in the first place. Changes to one subtask may obviate the need for other subtasks altogether. Or more commonly, a failure to understand some aspect of the problem domain makes obsolete work that was already completed.</p>
+<p>The dependencies between these tasks are also tied to complex graphs of technical dependencies involved with the choice in implementation. We now have a mapping between two fractal webs of complexity that are liable to change at any time during the lifetime of the project. It’s a wonder we’re even as good at software estimation so as to misestimate by 2-3x times!</p>
+<p>From here it’s understandable that movements like agile seek to reduce any given project to the minimum set of requirements which are needed given the current state of the world, and to constantly reprioritize these or rewrite them given new evidence. I’m not an agile fanatic, but I do favor iteration over lengthy estimation. With agile we are not necessarily eliminating the complexity of the task/implementation graphs, but we’re trying to purposefully examine only a small segment of them at any given time through the lens of business value.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-10-23T05:00:00.000Z"><a href="/2016/10/23/Excellence-through-safety/">2016-10-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/10/23/Excellence-through-safety/">Excellence through safety</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Every business wants teams that excel. Mountains of literature has been written on how to build and maintain teams. Countless people are employed for this purpose. But have we cracked the code? Ignoring, for a moment, the impossibility of guaranteeing steps for success for something as messy as groups of people interacting together to accomplish somewhat ill-defined tasks, there must be some steps one can take to at least increase the chance of success. But first we’d have to figure out what it means by success.</p>
+<h2 id="Successful-teams"><a href="#Successful-teams" class="headerlink" title="Successful teams"></a>Successful teams</h2><p>A successful team must be viewed, at least partially, as separate from the projects they undertake. Some projects are doomed from the start, and others are so easy as to be almost guaranteed.</p>
+<p>The success of a team can be thought of as an independent quantity. And I’m a firm believer in the research Google did which found they could measure the success of a team using one particular characteristic: <a href="http://www.nytimes.com/2016/02/28/magazine/what-google-learned-from-its-quest-to-build-the-perfect-team.html?_r=0" target="_blank" rel="external">psychological safety</a>. In order to  keep a team running smoothly, it all starts with trust. Team members need to test their leaders. Team members need to trust each other. And to top it all off: team members must trust the psychology of the culture you’ve developed. Why do teachers make such a big point of driving home the idea that “there are no dumb questions”? It’s because true learning doesn’t start until you are ready to admit all the things you do not know, and to be able to innocently ask questions or hypothesize.</p>
+<p>Figuring out solutions to problems isn’t a simple linear process. While it would be nice if we could write down the scientific method on a piece of paper and just consult it whenever we realize we don’t understand how bug #992123 managed to cause 50% of your customers to lose their billing data. You’d just do the following:</p>
+<ol>
+<li>State your problem</li>
+<li>Construct a hypothesis</li>
+<li>Test it with an experiment</li>
+<li>Repeat</li>
+</ol>
+<p>What complicates things is that number 2 is not as simple as a single step would make you assume. Constructing valid explanations for a bug, to continue with the example, in a team environment can be extremely complicated. It can be like a breadth-first search, like a depth-first search, like genetic algorithms, etc… It’s fundamentally a search through the hypothesis-space with some shortcut heuristics thrown in. When you get a good team together that isn’t afraid of making wild guesses, and can constructively eliminate wild guesses without fear or insult, you have the ability to search that space so much more efficiently.</p>
+<h2 id="How-do-we-build-up-psychological-safety"><a href="#How-do-we-build-up-psychological-safety" class="headerlink" title="How do we build up psychological safety?"></a>How do we build up psychological safety?</h2><h3 id="Listening"><a href="#Listening" class="headerlink" title="Listening"></a>Listening</h3><p>Before someone will feel confident participating in the kind of fruitful discussions mentioned previously, they have to trust they will be heard. No one wants to talk to a brick wall. Therefore, we have to encourage a culture of active listening. Do not ignore someone’s suggestion simply because of hierarchy. Don’t spend the entire time you should be listening thinking about what your next idea is. Engineers have a tendency to get tunnel vision, so this can be mediated by writing down ideas rapidly without digging deeply into them until later, leading people to be able to get their ideas out without anyone losing their train of thought.</p>
+<h3 id="Giving-credit-where-credit-is-due"><a href="#Giving-credit-where-credit-is-due" class="headerlink" title="Giving credit where credit is due"></a>Giving credit where credit is due</h3><p>People love to be valued for their contributions, hate to see someone mistakenly valued for something that they themselves did, and absolutely hate to be falsely represented or misunderstood. It’s not easy to encourage these behaviors short of making sure you yourself always give people credit when it is due. Most of the time this is a hiring issue as good employees are unlikely to try ‘stealing’ credit.</p>
+<h3 id="Praise-in-public-reprimand-in-private"><a href="#Praise-in-public-reprimand-in-private" class="headerlink" title="Praise in public, reprimand in private"></a>Praise in public, reprimand in private</h3><p>No one wants to get a bad reputation with their coworkers, so avoid giving them one they can’t get rid of. Ideas should stand on their own as much as possible, so don’t bias people by developing a culture of public criticism of each other.</p>
+<h2 id="How-do-we-make-use-of-our-new-found-safety"><a href="#How-do-we-make-use-of-our-new-found-safety" class="headerlink" title="How do we make use of our new found safety?"></a>How do we make use of our new found safety?</h2><h3 id="Actively-encourage-speculation"><a href="#Actively-encourage-speculation" class="headerlink" title="Actively encourage speculation"></a>Actively encourage speculation</h3><p>Most problems have more than one solution. Most facts have more than one proof. It helps to keep this in mind when involving your team in discussions, and an easy way to cement this is to informally never proceed on testing a hypothesis or materializing a design until more than one suggestion has been recorded. In the interests of expediency, small groups will often move in a depth-first search approach and immediately start trying to prove something as soon as its suggested. While this often works, it is an interesting thought experiment to imagine a world where we never acted until we had considered more than one possibility.</p>
+<h4 id="Breadth-First-Search"><a href="#Breadth-First-Search" class="headerlink" title="Breadth First Search"></a>Breadth First Search</h4><p>This tool, when translated to group discussions goes hand in hand with brainstorming. We mention lots of possibilities quickly without investigating them further in an attempt to explore as much of the space as possible before biasing ourselves towards a certain path. The rule reads as follows: “List two before investigating one”, meaning, you should have at least two possible explanations before going further on one.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-09-13T05:00:00.000Z"><a href="/2016/09/13/software-vs-building/">2016-09-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/09/13/software-vs-building/">software-vs-building-houses</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Software-Developers-coding-on-glass-laptops-shouldn’t-throw-bricks"><a href="#Software-Developers-coding-on-glass-laptops-shouldn’t-throw-bricks" class="headerlink" title="Software Developers coding on glass laptops shouldn’t throw bricks"></a>Software Developers coding on glass laptops shouldn’t throw bricks</h1><p>Reading the comments on [<a href="https://news.ycombinator.com/item?id=12795357" target="_blank" rel="external">https://news.ycombinator.com/item?id=12795357</a>] gave me some thoughts on the state of the art of building software vs the state of the art of building houses. It’s one of the most favored comparisons one can make because of all the interesting differences that become apparent when viewing the two side by side. To summarize, one of the comments on the article: “Houses have been built for thousands of years and are relatively well understood, while each software project is basically like building a house except it might have 6 walls instead of 4, and you might need a new kind of nail that is a spiral, and actually aliens are going to live in it but you’ll only find that out 6 months into the project.”</p>
+<h2 id="The-approximate"><a href="#The-approximate" class="headerlink" title="The approximate"></a>The approximate</h2><p>So what makes building software so much less efficient than building a house? There are plenty of arguments on the subject, but one element I don’t hear mentioned enough is the impossibility of approximation. When building things using conventional engineering, one has the ability to simulate, approximate, etc… the system at any given time and be rewarded with an understanding of how the system will function in reality. Now this is no silver bullet: simulations can be wrong, factors can be left unaccounted for, small issues can compound and present a bigger problem than when glossed over in an approximation. However, the fact that approximations can be made at all is extremely useful when designing systems.</p>
+<p>With software, something like (finite element methods)[<a href="https://en.wikipedia.org/wiki/Finite_element_method" target="_blank" rel="external">https://en.wikipedia.org/wiki/Finite_element_method</a>] isn’t really feasible. We’d love to be able to write some simplified pseudocode, run it, and be confident that we know the results carry over to our enormously complex 100k LOC accounting app. We try to deal with this by creating reusable abstractions that can be viewed as a black box. This much is known by any software developer. If we were able to abstract everything perfectly, then taken to the extreme, we’d be able to replace these modules with simplified versions and get an approximation of the software system as a whole. This obviously is impossible. Every abstraction ends up leaky from some perspective, and every detail ends up mattering given some change in your base assumptions.</p>
+<h2 id="The-way-forward"><a href="#The-way-forward" class="headerlink" title="The way forward"></a>The way forward</h2><p>Things like property based testing, advanced type systems, domain modelling are all attempts at gaining certainty that the system behaves as intended. They fulfill similar roles to simulation and approximation as it pertains to engineering, but are uniquely suited to the issues of software. Is it possible to go further?</p>
+<h3 id="Property-based-testing"><a href="#Property-based-testing" class="headerlink" title="Property based testing"></a>Property based testing</h3><p>Tools like QuickCheck have sprung up for every language that seems capable of supporting it. The promise of using Property based testing is too good to ignore, but it hasn’t quite reached the mainstream yet. In essence, you describe properties for your code that should hold for inputs of a given structure. You express these rules, and ways to generate the data for inputs and QuickCheck can make it much easier to determine whether your code works or not. For example, you can test a function foo(bar: Int), and QuickCheck can generate random integers for you, it could test integers that present edge cases like 0, negative numbers, numbers near an overflow, etc… Using this tool properly would ideally allow you to generalize about a class of inputs based on the approximation yielded by the data tested against. Unfortunately, not all business logic is convenient to be expressed in this manner.</p>
+<h3 id="Free-monads"><a href="#Free-monads" class="headerlink" title="Free monads"></a>Free monads</h3><p>Though lacking experience in using the (free monad)[<a href="https://wiki.haskell.org/Free_structure" target="_blank" rel="external">https://wiki.haskell.org/Free_structure</a>] in real systems, it seems promising. If the advocates of using it to represent business logic, we’d be granted an algebraic DSL which is interpreted by composeable interpreters of your domain logic. Being able to test the DSL separately from the side-effecting interpreters would be nice, but would it achieve our goals of having a representational approximation of the systems behavior? I’m optimistic, but I must assume it will not serve as a panacea for our software development woes.</p>
+<h3 id="Alloy"><a href="#Alloy" class="headerlink" title="Alloy"></a>Alloy</h3><p>Alloy is a “language and tool for relational models”. Alloy gives you a tool for expressing relationships between elements in your domain, and a language for expressing intransients about them as well. Their example tutorial on modelling a file system in Alloy is extremely good at giving some context [<a href="http://alloy.mit.edu/alloy/tutorials/online/index.html" target="_blank" rel="external">http://alloy.mit.edu/alloy/tutorials/online/index.html</a>]. Alloy takes the representation you’ve expressed and then tries to generate counterexamples that violate your intransients.<br>Example:</p>
+<ol>
+<li>A filesystem node can either be a directory, a link or a file (simplification)</li>
+<li>A directory can contain one or more filesystem nodes</li>
+</ol>
+<p>Intransients:</p>
+<ol>
+<li>every filesystem node must have a parent</li>
+<li>no filesystem node can have itself as its parent</li>
+<li>…</li>
+</ol>
+<p>If alloy can find a way to generate a filesystem node with itself as a parent, you’d invalidate the model. As with any software tool, using it has tradeoffs. What if you incorrectly model the problem? What if you fail to translate your model to software accurately? What if some operating characteristics of the system invalidate the assumptions the system was built on (ex: allowing concurrent filesystem modifications could lead to…issues).</p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>I’d love to have some answers on the subject. Planning on keeping this post open for modification as I learn more about the subjects mentioned within.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-08-03T05:00:00.000Z"><a href="/2016/08/03/hello-world/">2016-08-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/08/03/hello-world/">Hello World</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Buscar">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2017 John Doe
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>software-vs-building-houses | Hexo</title>
+  <meta name="author" content="John Doe">
+  
+  <meta name="description" content="Software Developers coding on glass laptops shouldn’t throw bricksReading the comments on [https://news.ycombinator.com/item?id=12795357] gave me some">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="software-vs-building-houses"/>
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-89814809-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-09-13T05:00:00.000Z"><a href="/2016/09/13/software-vs-building/">2016-09-13</a></time>
+      
+      
+  
+    <h1 class="title">software-vs-building-houses</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Software-Developers-coding-on-glass-laptops-shouldn’t-throw-bricks"><a href="#Software-Developers-coding-on-glass-laptops-shouldn’t-throw-bricks" class="headerlink" title="Software Developers coding on glass laptops shouldn’t throw bricks"></a>Software Developers coding on glass laptops shouldn’t throw bricks</h1><p>Reading the comments on [<a href="https://news.ycombinator.com/item?id=12795357" target="_blank" rel="external">https://news.ycombinator.com/item?id=12795357</a>] gave me some thoughts on the state of the art of building software vs the state of the art of building houses. It’s one of the most favored comparisons one can make because of all the interesting differences that become apparent when viewing the two side by side. To summarize, one of the comments on the article: “Houses have been built for thousands of years and are relatively well understood, while each software project is basically like building a house except it might have 6 walls instead of 4, and you might need a new kind of nail that is a spiral, and actually aliens are going to live in it but you’ll only find that out 6 months into the project.”</p>
+<h2 id="The-approximate"><a href="#The-approximate" class="headerlink" title="The approximate"></a>The approximate</h2><p>So what makes building software so much less efficient than building a house? There are plenty of arguments on the subject, but one element I don’t hear mentioned enough is the impossibility of approximation. When building things using conventional engineering, one has the ability to simulate, approximate, etc… the system at any given time and be rewarded with an understanding of how the system will function in reality. Now this is no silver bullet: simulations can be wrong, factors can be left unaccounted for, small issues can compound and present a bigger problem than when glossed over in an approximation. However, the fact that approximations can be made at all is extremely useful when designing systems.</p>
+<p>With software, something like (finite element methods)[<a href="https://en.wikipedia.org/wiki/Finite_element_method" target="_blank" rel="external">https://en.wikipedia.org/wiki/Finite_element_method</a>] isn’t really feasible. We’d love to be able to write some simplified pseudocode, run it, and be confident that we know the results carry over to our enormously complex 100k LOC accounting app. We try to deal with this by creating reusable abstractions that can be viewed as a black box. This much is known by any software developer. If we were able to abstract everything perfectly, then taken to the extreme, we’d be able to replace these modules with simplified versions and get an approximation of the software system as a whole. This obviously is impossible. Every abstraction ends up leaky from some perspective, and every detail ends up mattering given some change in your base assumptions.</p>
+<h2 id="The-way-forward"><a href="#The-way-forward" class="headerlink" title="The way forward"></a>The way forward</h2><p>Things like property based testing, advanced type systems, domain modelling are all attempts at gaining certainty that the system behaves as intended. They fulfill similar roles to simulation and approximation as it pertains to engineering, but are uniquely suited to the issues of software. Is it possible to go further?</p>
+<h3 id="Property-based-testing"><a href="#Property-based-testing" class="headerlink" title="Property based testing"></a>Property based testing</h3><p>Tools like QuickCheck have sprung up for every language that seems capable of supporting it. The promise of using Property based testing is too good to ignore, but it hasn’t quite reached the mainstream yet. In essence, you describe properties for your code that should hold for inputs of a given structure. You express these rules, and ways to generate the data for inputs and QuickCheck can make it much easier to determine whether your code works or not. For example, you can test a function foo(bar: Int), and QuickCheck can generate random integers for you, it could test integers that present edge cases like 0, negative numbers, numbers near an overflow, etc… Using this tool properly would ideally allow you to generalize about a class of inputs based on the approximation yielded by the data tested against. Unfortunately, not all business logic is convenient to be expressed in this manner.</p>
+<h3 id="Free-monads"><a href="#Free-monads" class="headerlink" title="Free monads"></a>Free monads</h3><p>Though lacking experience in using the (free monad)[<a href="https://wiki.haskell.org/Free_structure" target="_blank" rel="external">https://wiki.haskell.org/Free_structure</a>] in real systems, it seems promising. If the advocates of using it to represent business logic, we’d be granted an algebraic DSL which is interpreted by composeable interpreters of your domain logic. Being able to test the DSL separately from the side-effecting interpreters would be nice, but would it achieve our goals of having a representational approximation of the systems behavior? I’m optimistic, but I must assume it will not serve as a panacea for our software development woes.</p>
+<h3 id="Alloy"><a href="#Alloy" class="headerlink" title="Alloy"></a>Alloy</h3><p>Alloy is a “language and tool for relational models”. Alloy gives you a tool for expressing relationships between elements in your domain, and a language for expressing intransients about them as well. Their example tutorial on modelling a file system in Alloy is extremely good at giving some context [<a href="http://alloy.mit.edu/alloy/tutorials/online/index.html" target="_blank" rel="external">http://alloy.mit.edu/alloy/tutorials/online/index.html</a>]. Alloy takes the representation you’ve expressed and then tries to generate counterexamples that violate your intransients.<br>Example:</p>
+<ol>
+<li>A filesystem node can either be a directory, a link or a file (simplification)</li>
+<li>A directory can contain one or more filesystem nodes</li>
+</ol>
+<p>Intransients:</p>
+<ol>
+<li>every filesystem node must have a parent</li>
+<li>no filesystem node can have itself as its parent</li>
+<li>…</li>
+</ol>
+<p>If alloy can find a way to generate a filesystem node with itself as a parent, you’d invalidate the model. As with any software tool, using it has tradeoffs. What if you incorrectly model the problem? What if you fail to translate your model to software accurately? What if some operating characteristics of the system invalidate the assumptions the system was built on (ex: allowing concurrent filesystem modifications could lead to…issues).</p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>I’d love to have some answers on the subject. Planning on keeping this post open for modification as I learn more about the subjects mentioned within.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comentarios</h1>
+
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Buscar">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2017 John Doe
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
